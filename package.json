@@ -2,6 +2,7 @@
   "name": "chaiaurbackend",
   "version": "1.0.0",
   "description": "",
+  "type": "module",
   "keywords": [
     "javascript",
     "backend",
@@ -9,9 +10,11 @@
   ],
   "license": "ISC",
   "author": "\"Ayush Alam\"",
-  "type": "commonjs",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "nodemon src/index.js"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.14"
   }
 }
