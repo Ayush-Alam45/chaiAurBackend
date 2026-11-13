@@ -17,8 +17,15 @@ router.route("/register").post(
         }
 
     ]),
-    registerUser) 
+    registerUser
+) 
 
+
+router.route("/login").post(loginUser)
+
+//secure routes
+
+router.route("/logout").post(verifyJWT , logoutUser)
 
 
 
