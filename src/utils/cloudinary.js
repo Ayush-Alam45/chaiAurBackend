@@ -1,3 +1,6 @@
+
+
+
 import {v2 as cloudinary} from "cloudinary"
 import fs from "fs"
 
@@ -14,13 +17,29 @@ const uploadOnCloudinary = async (localFilePath) => {
        console.log("File uploaded to Cloudinary",response.url);
        return response ;
     }
-       
+    catch (error) {
+    console.dir(error, { depth: null });
+
+    console.log("HTTP Status:", error.http_code);
+    console.log("Response:", error.response);
+    console.log("Error details:", error.error);
+
+    if (localFilePath && fs.existsSync(localFilePath)) {
+        fs.unlinkSync(localFilePath);
+    }
+
+    return null;
+}
+      /* 
      catch (error) {
         fs.unlinkSync(localFilePath);
         return null;
     }
+        */
 }
 
 export {uploadOnCloudinary}
+
+
 
 
